@@ -1,0 +1,1 @@
+django-bootstrap==11.1.0
