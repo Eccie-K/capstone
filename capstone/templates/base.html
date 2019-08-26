@@ -1,9 +1,33 @@
-{% load 'bootstrap3' %}
+{% load bootstrap3 %}
+{% load static %}
 
 <!DOCTYPE html>
 <html>
     <head>
-        <title>lifestyle</title>
+        <meta charset="utf-8">
+
+        {% if title %}
+        <title>GreenOrganics - {{title}}</title>
+        {% else %}
+          <title> GreenOrganics </title>
+        {% endif %}
+      
+        {% block styles %}
+          {% bootstrap_css %}
+          <link rel="stylesheet" href="{% static 'css/capstone.css' %}"> 
+        {% endblock %}
+
+       
     </head>
-    <body></body>
+    <body>
+        {% include "navbar.html" %}
+
+    {% block content %} {%endblock%}
+
+    {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     {% bootstrap_javascript %}
+    {% endblock %}
+
+    </body>
 </html>
